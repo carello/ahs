@@ -10,6 +10,8 @@ The app can run in a docker container or native. I suppose a container is better
 Although I've coded the script to run only for 5 iterations for demonstrations purposes; the thought is it would run infinitely and send updates every 5 mins (or whatever interval you'd like).  
 
 The app runs the acitoolkit: <https://github.com/datacenter/acitoolkit> .  It's included in the container to make it portable.  
+Acitoolkit API documentation is here: <https://acitoolkit.readthedocs.io/en/latest/modules.html>  
+
 
 Documentation for Spark APIs can be found here.    
 <https://developer.ciscospark.com/getting-started.html>  
