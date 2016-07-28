@@ -3,4 +3,5 @@ creds.pyc
 test-mess.py
 /venv
 /venv/*
+.idea
 
