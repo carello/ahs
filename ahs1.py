@@ -7,6 +7,8 @@ import json
 import sys
 import time
 
+# starting phase 1
+
 spark_api = "https://api.ciscospark.com/v1/messages"
 token, dt, roomId = creds.spark_GetArgs()
 
