@@ -104,7 +104,7 @@ def main():
             u = session.get("/api/node/mo/uni/tn-" + tt.name + "/health.json")
             page = json.loads(u.content)
             healthscore = page["imdata"][0]["healthInst"]['attributes']['twScore']
-            print tt.name + healthscore
+            #print tt.name + healthscore
 
             if int(healthscore) < 90:
                 while int(healthscore) < 95: # set upper threshold to stop alerts
@@ -112,7 +112,7 @@ def main():
                     alert_room_id = setup_room()
                     add_email_alert_room(team_email, alert_room_id)
                     send_alert(alert_room_id, message)
-                    time.sleep(5) # TODO make alerts every 5 mins until resolved.
+                    time.sleep(3) # TODO make alerts every 5 mins until resolved.
                     timeo += 1
                     if timeo == 3: break # breeak out of loop for demo
 
