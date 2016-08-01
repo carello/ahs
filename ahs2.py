@@ -90,24 +90,31 @@ def main():
 
     tenants = aci.Tenant.get(session)
 
+    timeo = 0
+    tempcount = 0
 
-    if not resp.ok:
-        print('%% Could not login to APIC')
-        sys.exit(0)
-
-
-    for tt in tenants:
-        u = session.get("/api/node/mo/uni/tn-" + tt.name + "/health.json")
-        page = json.loads(u.content)
-        healthscore = page["imdata"][0]["healthInst"]['attributes']['twScore']
-        message = "TENANT: %s's  Healthscore: %s" % (tt.name, healthscore)
-        if int(healthscore) < 90:
-            alert_room_id = setup_room()
-            add_email_alert_room(team_email, alert_room_id)
-            send_alert(alert_room_id, message)
+    # TODO - need to create open loop, and only send meesages every 5 minss until resolved.
+    while timeo < 3: # for demo make the loop < 3
+        if not resp.ok:
+            print('%% Could not login to APIC')
+            sys.exit(0)
 
 
+        for tt in tenants:
+            u = session.get("/api/node/mo/uni/tn-" + tt.name + "/health.json")
+            page = json.loads(u.content)
+            healthscore = page["imdata"][0]["healthInst"]['attributes']['twScore']
+            print tt.name + healthscore
 
+            if int(healthscore) < 90:
+                while int(healthscore) < 95: # set upper threshold to stop alerts
+                    message = "TENANT: %s's  Healthscore: %s" % (tt.name, healthscore)
+                    alert_room_id = setup_room()
+                    add_email_alert_room(team_email, alert_room_id)
+                    send_alert(alert_room_id, message)
+                    time.sleep(5) # TODO make alerts every 5 mins until resolved.
+                    timeo += 1
+                    if timeo == 3: break # breeak out of loop for demo
 
 main()
 
