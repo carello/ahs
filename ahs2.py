@@ -12,20 +12,18 @@ import time
 spark_host = "https://api.ciscospark.com"
 spark_api = "https://api.ciscospark.com/v1/messages"
 token, dt, roomId = creds.spark_GetArgs()
-email = "cp2carello@gmail.com"
+team_email = "cp2carello@gmail.com"
 
 spark_headers = {'Content-type': 'application/json', 'Authorization': token}
 
 # Spark rooms setup
 def setup_room():
-    #print "in setup room function"
     room_items = current_rooms()
 
 # Look for a room called "Alert Room"
     alert_room_id = ""
     for room in room_items:
         if room["title"] == "Alert Room":
-            #print("Found Room")
             alert_room_id = room["id"]
             return alert_room_id
 
@@ -40,8 +38,6 @@ def create_alert_room():
     spark_r = spark_host + "/v1/rooms"
     spark_body = {"title":"Alert Room"}
     page = requests.post(spark_r, headers = spark_headers, json=spark_body)
-    #print "IN CREATE ALERT ROOM"
-    #print page
     room = page.json()
     return room
 
@@ -49,24 +45,18 @@ def current_rooms():
     spark_r = spark_host + "/v1/rooms"
     page = requests.get(spark_r, headers=spark_headers)
     rooms = page.json()
-    #print rooms["items"][0]['title']
     return rooms["items"]
 
 
-# Utility Add a user to the Alert Room
 def add_email_alert_room(email, alert_room_id):
     member = get_membership_for_room(alert_room_id)
     personEmail_id = ""
-    #print "MEMBER"
-    #print alert_room_id
-    #print "X" * 20
+
     for k,v in member[0].items():
         if k == 'personEmail':
             personEmail_id = v
-    #print personEmail_id
 
     if personEmail_id != email:
-        #print "in add email alert room"
         spark_r = spark_host + "/v1/memberships"
         spark_body = {"personEmail": email, "roomId" : alert_room_id}
         page = requests.post(spark_r, headers = spark_headers, json=spark_body)
@@ -80,7 +70,6 @@ def get_membership_for_room(alert_room_id):
     spark_r = spark_host + "/v1/memberships?roomId=%s" % (alert_room_id)
     page = requests.get(spark_r, headers = spark_headers)
     memberships = page.json()["items"]
-    #print "IN GET MEMBER FOR ROOM"
     return memberships
 
 
@@ -97,35 +86,26 @@ def main():
     session = aci.Session(url, login, password)
     resp = session.login()
 
+    tenants = aci.Tenant.get(session)
+
+
     if not resp.ok:
         print('%% Could not login to APIC')
         sys.exit(0)
 
-    lowtenant = ""
-    tenants = aci.Tenant.get(session)
-    message = ""
-
-
 
     for tt in tenants:
-        if tt.name == "Ben-Ten1":
-            lowtenant = tt.name
-            print lowtenant
-
-        if lowtenant == tt.name:
-            u = session.get("/api/node/mo/uni/tn-"+ lowtenant +"/health.json")
-            page = json.loads(u.content)
-            healthscore =  page["imdata"][0]["healthInst"]['attributes']['twScore']
-            message = "TENANT %s's  Score: %s" % (lowtenant, healthscore)
-            print message
-        if lowtenant != lowtenant:
-            print "OUCH -  Tenatns don't match"
-            sys.exit(0)
+        u = session.get("/api/node/mo/uni/tn-" + tt.name + "/health.json")
+        page = json.loads(u.content)
+        healthscore = page["imdata"][0]["healthInst"]['attributes']['twScore']
+        message = "TENANT: %s's  Healthscore: %s" % (tt.name, healthscore)
+        if int(healthscore) < 90:
+            alert_room_id = setup_room()
+            add_email_alert_room(team_email, alert_room_id)
+            send_alert(alert_room_id, message)
 
 
 
-    alert_room_id = setup_room()
-    add_email_alert_room(email, alert_room_id)
-    send_alert(alert_room_id, message)
 
 main()
+
