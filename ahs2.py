@@ -13,8 +13,8 @@ spark_host = "https://api.ciscospark.com"
 spark_api = "https://api.ciscospark.com/v1/messages"
 token, dt, roomId = creds.spark_GetArgs()
 team_email = "cp2carello@gmail.com"
-
 spark_headers = {'Content-type': 'application/json', 'Authorization': token}
+
 
 # Spark rooms setup
 def setup_room():
@@ -41,6 +41,7 @@ def create_alert_room():
     room = page.json()
     return room
 
+
 def current_rooms():
     spark_r = spark_host + "/v1/rooms"
     page = requests.get(spark_r, headers=spark_headers)
@@ -48,6 +49,7 @@ def current_rooms():
     return rooms["items"]
 
 
+# Team members to the Alert Room
 def add_email_alert_room(email, alert_room_id):
     member = get_membership_for_room(alert_room_id)
     personEmail_id = ""
@@ -73,7 +75,7 @@ def get_membership_for_room(alert_room_id):
     return memberships
 
 
-
+# Send message to Alert Room
 def send_alert(alert_room_id, message):
     headers = {'Content-type': 'application/json', 'Authorization': token}
     data = {'roomId': alert_room_id, 'text': message}

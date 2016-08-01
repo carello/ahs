@@ -1,6 +1,6 @@
-# ahs  
-####(ACI tenant Healthscore - Spark)
+## ahs  (ACI tenant Healthscore - Spark)
 
+### ahs1.py
 The idea of this script is:  
 1) Query the healthscore of a Tenant in ACI.  
 2) Send periodic updates (tenant healthscore) to an existing spark room.  
@@ -20,6 +20,12 @@ Provides a convenient demo mode as well.
 The app is using a basic token for the Spark room. You'll need to add your own token, roomID and APIC credentials. Copy the ****creds-template.py**** to ****creds.py****  and update your data/credentials. 
 
 ***ToDo - add more robust authentication***  
+
+###ahs2.py  
+The idea of this app is:  
+1) We monitor Tenant healthscores in APIC.  
+2) If the healthscore is below a minimum threshold, (can be set in the program): the app will open up a Spark room, with an alert of the Tenant healthscore and add in team members.
+
 
  
 
