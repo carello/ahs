@@ -24,7 +24,11 @@ The app is using a basic token for the Spark room. You'll need to add your own t
 ###ahs2.py  
 The idea of this app is:  
 1) We monitor Tenant healthscores in APIC.  
-2) If the healthscore is below a minimum threshold, (can be set in the program): the app will open up a Spark room, with an alert of the Tenant healthscore and add in team members.
+2) If the healthscore is below a minimum threshold, (can be set in the program): the app will open up a Spark room, with an alert of the Tenant healthscore and add in team members.  
+3) The alerts will continue to be sent until an upper watermark it hit. For example when healthscore reaches 95, stop sending the alerts. 
+
+Note: for demo purposes the app is set to loop for 3 iterations. In production, you'd probably want an infinite loop until a condition is false.
+
 
 
  
