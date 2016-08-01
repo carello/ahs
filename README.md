@@ -22,7 +22,7 @@ The app is using a basic token for the Spark room. You'll need to add your own t
 ***ToDo - add more robust authentication***  
 
 ###ahs2.py  
-The idea of this app is:  
+The idea of this version is:  
 1) We monitor Tenant healthscores in APIC.  
 2) If the healthscore is below a minimum threshold, (can be set in the program): the app will open up a Spark room, with an alert of the Tenant healthscore and add in team members.  
 3) The alerts will continue to be sent until an upper watermark it hit. For example when healthscore reaches 95, stop sending the alerts. 
