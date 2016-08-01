@@ -5,4 +5,4 @@ ADD . /app
 
 WORKDIR /app
 
-CMD ["python", "ahs1.py"]
+CMD ["python", "ahs2.py"]
