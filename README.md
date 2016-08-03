@@ -17,7 +17,10 @@ Documentation for Spark APIs can be found here.
 <https://developer.ciscospark.com/getting-started.html>  
 Provides a convenient demo mode as well.
 
-The app is using a basic token for the Spark room. You'll need to add your own token, roomID and APIC credentials. Copy the ****creds-template.py**** to ****creds.py****  and update your data/credentials. 
+The app is using a basic token for the Spark room. You'll need to add your own token, roomID and APIC credentials.  
+You can find your Spark token by logging into <http://developer.cisocpark.com> and selecting "My Apps" in the upper right hand corner of the page. To find your roomID, select Documentation, then "Rooms" from the lefthand column and navigate from there.  
+
+Copy the ****creds-template.py**** to ****creds.py****  and update your data/credentials. 
 
 ***ToDo - add more robust authentication***  
 
@@ -26,6 +29,8 @@ The idea of this version is:
 1) We monitor Tenant healthscores in APIC.  
 2) If the healthscore is below a minimum threshold, (can be set in the program): the app will open up a Spark room, with an alert of the Tenant healthscore and add in team members.  
 3) The alerts will continue to be sent until an upper watermark it hit. For example when healthscore reaches 95, stop sending the alerts. 
+
+Please see the README above for details on obtaining your token and roomID, etc...
 
 Note: for demo purposes the app is set to loop for 3 iterations. In production, you'd probably want an infinite loop until a condition is false.
 
