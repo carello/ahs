@@ -30,7 +30,7 @@ The idea of this version is:
 Note: for demo purposes the app is set to loop for 3 iterations. In production, you'd probably want an infinite loop until a condition is false.
 
 #Setup
-You'll need to provide Environmental Variables to run ahs1.py and ahs2.py. run ``source ahs_setup`` to provde the:	 Spark Token, Spark Room ID, APIC URL, APIC password, APIC user, and Tenant (only for ahs1.py).
+You'll need to provide Environmental Variables to run ahs1.py and ahs2.py. Run ``source ahs_setup`` to provide the following: Spark Token, Spark Room ID, APIC URL, APIC password, APIC user, and Tenant (only for ahs1.py).
 
  
 
