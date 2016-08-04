@@ -1,7 +1,7 @@
-creds.py
-creds.pyc
-test-mess.py
 /venv
 /venv/*
 .idea
+cred-env-for-lab
+ahs1.py.sfty
+ahs2.py.sfty
 
