@@ -1,10 +1,26 @@
 #!/usr/bin/env python
 
-# rename this file to creds.py and enter in your date inputs.
-
 import ssl
 import requests
+import os
 requests.packages.urllib3.disable_warnings()
+
+# working area to set env for lab
+tk_inp = os.getenv('TOKEN_INPUT')
+dt_inp = os.getenv('DESIRED_TENANT_INPUT')
+rm_inp = os.getenv('ROOM_ID_INPUT')
+ur_inp = os.getenv('APIC_URL_INPUT')
+lg_inp = os.getenv('APIC_LOGIN_INPUT')
+ps_inp = os.getenv('APIC_PASSWRD_INPUT')
+
+
+# TEST ENV's
+#print tk_inp
+#print dt_inp
+#print rm_inp
+#print ur_inp
+#print lg_inp
+#print ps_inp
 
 
 def cred():
@@ -20,14 +36,14 @@ def cred():
 
 def apic_GetArgs():
     # enter in your credentials for your APIC
-    url = "http://url"
-    login = "user name"
-    password = "password"
+    url = ur_inp
+    login = lg_inp
+    password = ps_inp
     return url, login, password
 
-
 def spark_GetArgs():
-    token = "spark token"
-    dt = "ACI Tenant name"
-    roomId = "spark room id"
+    token = tk_inp
+    dt = dt_inp
+    roomId = rm_inp
     return token, dt, roomId
+
