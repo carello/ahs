@@ -15,8 +15,8 @@ Acitoolkit API [documentation](https://acitoolkit.readthedocs.io/en/latest/modul
 
 Documentation for [Spark APIs.](https://developer.ciscospark.com/getting-started.html) Provides a convenient demo mode as well.
 
-The app is using a basic token for the Spark room. You'll need to add your own token, roomID and APIC credentials. 
-You can find your Spark token by logging into <http://developer.cisocpark.com> and selecting "My Apps" in the upper right hand corner of the page. To find your roomID, select Documentation, then "Rooms" from the left hand column and navigate from there.  
+The app is using a basic token for the Spark room. You'll need to add your own token, roomID and APIC credentials, (see Setup below). 
+You can find your Spark token by logging into <http://developer.cisocpark.com> and selecting "My Apps" in the upper right hand corner of the page. To find your roomID: select Documentation, then "Rooms" from the left hand column and navigate from there.  
 
  
 
