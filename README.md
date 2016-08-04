@@ -5,7 +5,7 @@ The idea of this script is:
 1) Query the healthscore of a Tenant in ACI.  
 2) Send periodic updates (tenant healthscore) to an existing spark room.  
 
-The app can run in a docker container or native. I suppose a container is better running in the background. Dockerfile included.  
+The app can run in a docker container or native. I suppose a container is better running in the background. Dockerfile included; comment out the call the python version as needed.
 
 Although I've coded the script to run only for 5 iterations for demonstrations purposes; the thought is it would run infinitely and send updates every 5 mins (or whatever interval you'd like).  
 
