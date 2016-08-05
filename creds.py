@@ -12,6 +12,7 @@ rm_inp = os.getenv('ROOM_ID_INPUT')
 ur_inp = os.getenv('APIC_URL_INPUT')
 lg_inp = os.getenv('APIC_LOGIN_INPUT')
 ps_inp = os.getenv('APIC_PASSWRD_INPUT')
+rvs_set = os.getenv('RAN_ENV_SETUP')
 
 
 # TEST ENV's
@@ -21,6 +22,8 @@ ps_inp = os.getenv('APIC_PASSWRD_INPUT')
 #print ur_inp
 #print lg_inp
 #print ps_inp
+#print rvs_set
+
 
 
 def cred():
@@ -32,6 +35,11 @@ def cred():
     else:
         # Handle target environment that doesn't support HTTPS verification
         ssl._create_default_https_context = _create_unverified_https_context
+
+def check_setup():
+    if rvs_set == "ran_env_setup":
+        return True
+    else : return False
 
 
 def apic_GetArgs():
