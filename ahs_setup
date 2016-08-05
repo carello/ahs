@@ -12,7 +12,7 @@ echo
 echo "What is the Spark Room ID?"
 read r_spark_room_id
 echo
-echo "waht is the APIC URL? i.e., http://x.x.x.x"
+echo "What is the APIC URL? i.e., http://x.x.x.x"
 read r_apic_url
 echo
 echo "What is the APIC login name?"
