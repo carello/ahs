@@ -1,0 +1,7 @@
+TOKEN_INPUT=Bearer <token>
+DESIRED_TENANT_INPUT=<tenant>
+ROOM_ID_INPUT=<room id>
+APIC_URL_INPUT=h<apic url>
+APIC_LOGIN_INPUT=<apic login user>
+APIC_PASSWRD_INPUT=<apic password>
+RAN_ENV_SETUP=ran_env_setup

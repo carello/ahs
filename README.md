@@ -28,7 +28,11 @@ Note: for demo purposes the app is set to loop for 3 iterations. In production, 
 #Setup
 The app is using a basic token for the Spark room. You'll need to add your own token, roomID and APIC credentials.  You can find your Spark token by logging into <http://developer.cisocpark.com> and selecting "My Apps" in the upper right hand corner of the page. To find your roomID: select Documentation, then "Rooms" from the left hand column and navigate from there. 
 
-Once you have that you'll need to provide Environmental Variables to run ahs1.py and ahs2.py. Run ``source ahs_setup`` to provide the following: Spark Token, Spark Room ID, APIC URL, APIC password, APIC user, and Tenant (only for ahs1.py).
+Once you have that you'll need to provide Environmental Variables to run ahs1.py and ahs2.py. Run ``source ahs_setup`` to provide the following: Spark Token, Spark Room ID, APIC URL, APIC password, APIC user, and Tenant (only for ahs1.py).  
+
+###Docker Setup  
+
+If building a docker container, you'll need to provide an environmental file at container run time: ``--env-file file_name``. I've provided and example file for reference.
 
 
 
