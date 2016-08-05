@@ -12,6 +12,11 @@ token, dt, roomId = creds.spark_GetArgs()
 
 
 def main():
+    # Check to see if setup was run to capture env info.
+    if not creds.check_setup():
+        print "*** Please run setup: 'source cred-env-for-lab' or 'source ahs_setup' "
+        sys.exit(0)
+
     url, login, password = creds.apic_GetArgs()
     session = aci.Session(url, login, password)
     resp = session.login()
@@ -29,7 +34,7 @@ def main():
             if t.name == dt:
                 seltenant = t.name
                 timeo += 1
-                print seltenant
+                #print seltenant
 
             if seltenant == t.name:
                 u = session.get("/api/node/mo/uni/tn-"+ dt +"/health.json")
@@ -39,7 +44,7 @@ def main():
                 headers = {'Content-type': 'application/json', 'Authorization': token}
                 data = {'roomId': roomId, 'text': message}
                 requests.post(spark_api, headers=headers, data=json.dumps(data))
-                time.sleep(5)
+                time.sleep(3)
         if seltenant != dt:
             print "OUCH"
             sys.exit(0)

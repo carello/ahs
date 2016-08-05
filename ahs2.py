@@ -84,6 +84,11 @@ def send_alert(alert_room_id, message):
 
 
 def main():
+    # Check to see if setup was run to capture env info.
+    if not creds.check_setup():
+        print "*** Please run setup: 'source cred-env-for-lab' or 'source ahs_setup' "
+        sys.exit(0)
+
     url, login, password = creds.apic_GetArgs()
     session = aci.Session(url, login, password)
     resp = session.login()
