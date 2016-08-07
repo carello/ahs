@@ -17,4 +17,6 @@ ahs2.py.sfty
 /host/my_env
 host/my_env
 vag_my_env.txt
+.vagrant/*
+.vagrant*
 

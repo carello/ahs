@@ -10,4 +10,5 @@ vag_my_env.txt
 host/my_env
 host/.vagrant/*
 /host/.vagrant/*
+.vagrant/*
 
