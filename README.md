@@ -35,7 +35,7 @@ Once you have that you'll need to provide Environmental Variables to run ahs1.py
 If building a docker container, you'll need to provide an environmental file at container run time: ``--env-file file_name``. I've provided and example file for reference.
 
 #Vagrant  
-Included are Vagrant configuration files. I uses a host VM (Ubuntu) to run docker. To setup: Run``vagrant up``in your main directory to start.  
+Included are Vagrant configuration files. It uses a host VM (Ubuntu) to run docker. To setup: Run``vagrant up``in your main directory to start.  
 
 You'll notice there's a directory called 'host'. if you``cd host``you'll be able to execute``vagrant ssh``to get access to the host. You can certainly configure the Ubuntu host for ssh directly. Take a look at the Vagrantfiles for the IP address. You can change the IP for your environment.
 
