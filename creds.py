@@ -7,7 +7,7 @@ requests.packages.urllib3.disable_warnings()
 
 # working area to set env for lab
 tk_inp = os.getenv('TOKEN_INPUT')
-dt_inp = os.getenv('DESIRED_TENANT_INPUT')
+dt_inp = os.getenv('DESIRED_TENANT_INPUT') #only used for ahs1.py, can be removed for ahs2.py
 rm_inp = os.getenv('ROOM_ID_INPUT')
 ur_inp = os.getenv('APIC_URL_INPUT')
 lg_inp = os.getenv('APIC_LOGIN_INPUT')
@@ -16,13 +16,13 @@ rvs_set = os.getenv('RAN_ENV_SETUP')
 
 
 # TEST ENV's
-print tk_inp
-print dt_inp
-print rm_inp
-print ur_inp
-print lg_inp
-print ps_inp
-print rvs_set
+#print tk_inp
+#print dt_inp
+#print rm_inp
+#print ur_inp
+#print lg_inp
+#print ps_inp
+#print rvs_set
 
 
 
@@ -51,7 +51,7 @@ def apic_GetArgs():
 
 def spark_GetArgs():
     token = tk_inp
-    dt = dt_inp
+    dt = dt_inp # only useed for ahs1.py, can be removed
     roomId = rm_inp
     return token, dt, roomId
 
