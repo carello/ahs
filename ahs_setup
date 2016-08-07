@@ -6,10 +6,10 @@ echo
 echo "What is the Spark Token?"
 read r_spark_token
 echo
-echo "What is the desired Tenant? (note: only used for ahs1.py"
+echo "What is the desired Tenant? (note: only used for ahs1.py)"
 read r_desired_tenant
 echo
-echo "What is the Spark Room ID?"
+echo "What is the Spark Room ID? (note: only used for ahs1.py)"
 read r_spark_room_id
 echo
 echo "What is the APIC URL? i.e., http://x.x.x.x"
