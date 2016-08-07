@@ -1,8 +1,0 @@
-# used only for building vagrant
-export TOKEN_INPUT='Bearer Y2VkYjBlYTgtMTNiYy00YWQ2LThmMWYtZDljNWE4ODZjZDI4ZTIyM2I2OTktMDRm'
-export DESIRED_TENANT_INPUT='MOON'
-export ROOM_ID_INPUT='Y2lzY29zcGFyazovL3VzL1JPT00vYTllY2I5MTAtNTdmYi0xMWU2LTk5MzktNzM3ZTA0NmZhYzU5'
-export APIC_URL_INPUT='http://10.91.86.180'
-export APIC_LOGIN_INPUT='chet'
-export APIC_PASSWRD_INPUT='9letmein'
-export RAN_ENV_SETUP=r'an_env_setup'
