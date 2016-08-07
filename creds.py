@@ -16,13 +16,13 @@ rvs_set = os.getenv('RAN_ENV_SETUP')
 
 
 # TEST ENV's
-#print tk_inp
-#print dt_inp
-#print rm_inp
-#print ur_inp
-#print lg_inp
-#print ps_inp
-#print rvs_set
+print tk_inp
+print dt_inp
+print rm_inp
+print ur_inp
+print lg_inp
+print ps_inp
+print rvs_set
 
 
 

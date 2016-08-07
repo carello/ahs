@@ -12,3 +12,11 @@ cred-env-for-lab
 creds.py
 build-aci-docker-template
 my_env
+ahs1.py.sfty
+ahs2.py.sfty
+/host/my_env
+host/my_env
+vag_my_env.txt
+
+
+
